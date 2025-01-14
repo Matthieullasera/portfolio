@@ -1,9 +1,37 @@
 /* Variables */
-$primary-color: #333;
-$secondary-color: #f4f4f9;
-$accent-color: #f4a261;
-$text-color: #555;
 $font-family: 'Arial, sans-serif';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* Variables CSS */
+:root {
+    --background: 200 19% 18%;
+    --foreground: 180 100% 97%;
+    --muted: 200 12% 22%;
+    --muted-foreground: 200 12% 72%;
+    --popover: 200 19% 15%;
+    --popover-foreground: 0 0% 100%;
+    --card: 200 19% 16%;
+    --card-foreground: 0 0% 100%;
+    --border: 200 9% 23%;
+    --input: 200 9% 26%;
+    --primary: 180 100% 97%;
+    --primary-foreground: 180 100% 17%;
+    --secondary: 180 30% 25%;
+    --secondary-foreground: 180 30% 85%;
+    --accent: 200 19% 33%;
+    --accent-foreground: 200 19% 93%;
+    --destructive: 8 94% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 180 100% 97%;
+    --chart-1: 180 100% 97%;
+    --chart-2: 180 30% 25%;
+    --chart-3: 200 19% 33%;
+    --chart-4: 180 30% 28%;
+    --chart-5: 180 103% 97%;
+  }
+
+/* Variables */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 /* Mixins */
 @mixin center-flex {
@@ -15,16 +43,16 @@ $font-family: 'Arial, sans-serif';
 /* Styles globaux */
 body {
     margin: 0;
-    font-family: $font-family;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    color: $primary-color;
-    background-color: $secondary-color;
+    color: hsl(var(--foreground)); /* Texte principal */
+    background-color: hsl(var(--background)); /* Arrière-plan principal */
 }
 
 /* Header */
 .header {
-    background-color: $primary-color;
-    color: #fff;
+    background-color: hsl(var(--background)); /* Couleur de fond */
+    color: hsl(var(--foreground)); /* Couleur du texte */
     padding: 1rem;
     position: sticky;
     top: 0;
@@ -45,61 +73,99 @@ body {
             gap: 1.5rem;
 
             a {
-                color: #fff;
+                color: hsl(var(--foreground)); /* Texte des liens */
                 text-decoration: none;
                 font-size: 1rem;
                 transition: color 0.3s ease;
 
                 &:hover {
-                    color: $accent-color;
+                    color: hsl(var(--primary)); /* Couleur au survol */
                 }
             }
         }
     }
 }
 
-/* Section: Me */
+/* Section Me */
 .me {
     text-align: center;
     padding: 4rem 1rem;
-    background-color: #fff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: hsl(var(--card)); /* Fond de la section */
+    color: hsl(var(--card-foreground)); /* Couleur du texte */
 
     h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-weight: 700;
+        font-size: 4rem;
+        text-transform: uppercase;
+        margin: 0;
+        color: hsl(var(--primary)); /* Couleur du titre */
     }
 
-    p {
-        font-size: 1.2rem;
-        color: $text-color;
+    h2 {
+        font-size: 1.5rem;
+        color: hsl(var(--muted-foreground)); /* Couleur secondaire */
+        margin-bottom: 2rem;
+    }
+
+    .avatar {
+        margin-bottom: 2rem;
+
+        img {
+            width: 60%;
+            height: 60%;
+        }
+    }
+
+    .contact-button {
+        background-color: hsl(var(--accent)); /* Bouton */
+        color: hsl(var(--accent-foreground)); /* Texte du bouton */
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: hsl(var(--primary));
+        }
     }
 }
 
-/* Section: About */
+/* Section About */
 .about {
     padding: 4rem 1rem;
-    background-color: $secondary-color;
-    text-align: center;
+    background-color: hsl(var(--background)); /* Même couleur que le body */
+    color: hsl(var(--foreground)); /* Texte principal */
 
     h2 {
         font-size: 2rem;
         margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
     }
 
     p {
-        font-size: 1rem;
-        color: $text-color;
+        font-size: 1.1rem;
+        color: hsl(var(--muted-foreground)); /* Texte atténué */
         max-width: 600px;
-        margin: 0 auto;
+        margin: 0 auto 2rem;
+        text-align: center;
     }
 }
 
-/* Section: Projects */
+/* Section Projects */
 .projects {
     padding: 4rem 1rem;
-    background-color: #fff;
-    text-align: center;
+    background-color: hsl(var(--card)); /* Fond des projets */
+    color: hsl(var(--card-foreground)); /* Texte */
 
     h2 {
         font-size: 2rem;
@@ -112,7 +178,8 @@ body {
         gap: 1.5rem;
 
         .project-item {
-            background-color: $secondary-color;
+            background-color: hsl(var(--popover)); /* Fond des items */
+            color: hsl(var(--popover-foreground)); /* Texte des items */
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -121,14 +188,97 @@ body {
             &:hover {
                 transform: translateY(-5px);
             }
+
+            h3 {
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+                color: hsl(var(--primary)); /* Titre de l'item */
+            }
+
+            p {
+                font-size: 0.9rem;
+                color: hsl(var(--muted-foreground)); /* Texte de l'item */
+            }
+
+            button {
+                margin-top: 1rem;
+                padding: 0.5rem 1rem;
+                border: none;
+                background-color: hsl(var(--accent)); /* Bouton */
+                color: hsl(var(--accent-foreground)); /* Texte du bouton */
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: hsl(var(--primary));
+                }
+            }
+        }
+    }
+}
+.projects {
+    padding: 4rem 1rem;
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    text-align: center;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .projects-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grille adaptative */
+        gap: 2rem;
+        justify-content: center; /* Centre les éléments horizontalement */
+
+        .project-item {
+            background-color: hsl(var(--popover));
+            color: hsl(var(--popover-foreground));
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            h3 {
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+                color: hsl(var(--primary));
+            }
+
+            p {
+                font-size: 0.9rem;
+                color: hsl(var(--muted-foreground));
+            }
+
+            button {
+                margin-top: 1rem;
+                padding: 0.5rem 1rem;
+                border: none;
+                background-color: hsl(var(--accent));
+                color: hsl(var(--accent-foreground));
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: hsl(var(--primary));
+                }
+            }
         }
     }
 }
 
-/* Section: Skills */
 .skills {
     padding: 4rem 1rem;
-    background-color: $secondary-color;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     text-align: center;
 
     h2 {
@@ -139,21 +289,36 @@ body {
     ul {
         list-style: none;
         padding: 0;
+        margin: 0 auto;
+        max-width: 600px; /* Limite la largeur */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centre les compétences */
+        gap: 1.5rem; /* Espacement entre les éléments */
 
         li {
             font-size: 1.1rem;
             margin: 0.5rem 0;
+            background-color: hsl(var(--card));
+            color: hsl(var(--card-foreground));
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-3px);
+            }
         }
     }
 }
 
 /* Footer */
 .footer {
-    background-color: $primary-color;
-    color: #fff;
+    background-color: hsl(var(--background)); /* Fond du footer */
+    color: hsl(var(--foreground)); /* Texte du footer */
     text-align: center;
     padding: 1.5rem 1rem;
-    margin-top: 2rem;
 
     p {
         margin: 0.5rem 0;
@@ -166,34 +331,14 @@ body {
         gap: 1.5rem;
 
         a {
-            color: #fff;
+            color: hsl(var(--foreground));
             text-decoration: none;
             font-size: 1.2rem;
             transition: color 0.3s ease;
 
             &:hover {
-                color: $accent-color;
+                color: hsl(var(--primary));
             }
         }
-    }
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .projects-list {
-        grid-template-columns: 1fr;
-    }
-
-    .me h1 {
-        font-size: 2rem;
-    }
-
-    .me p {
-        font-size: 1rem;
     }
 }

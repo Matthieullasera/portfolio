@@ -1,11 +1,15 @@
+import Carrousel from './Carrousel';
+
 const About = () => {
     return (
-        <section className="about">
-            <h2>About Me</h2>
-            <p>
-                Passionate web developer with experience in creating modern and responsive web applications.
-                I specialize in React, JavaScript, and modern web technologies.
-            </p>
+        <section id="about" className="about">
+            <h2>À propos</h2>
+            <div className="about-content">
+                <p>
+                    Je suis un développeur web passionné qui aime créer et innover. Voici quelques-unes des choses que j apprécie :
+                </p>
+                <Carrousel />
+            </div>
         </section>
     );
 };

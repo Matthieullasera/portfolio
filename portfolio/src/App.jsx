@@ -1,19 +1,19 @@
 import Header from './components/Header';
-import Me from './components/Me';
+import Me from './components/Me'; // Import de Me
 import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import Footer from './components/Footer';
+import Contact from './components/Contact';
 
 const App = () => {
     return (
         <div>
             <Header />
-            <Me/>
+            <Me />
             <About />
-            <Projects/>
+            <Projects />
             <Skills />
-            <Footer />
+            <Contact />
         </div>
     );
 };

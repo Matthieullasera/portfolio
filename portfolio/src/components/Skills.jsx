@@ -1,12 +1,13 @@
 const Skills = () => {
     return (
-        <section className="skills">
-            <h2>Skills</h2>
+        <section id="skills" className="skills">
+            <h2>Compétences</h2>
             <ul>
-                <li>React</li>
+                <li>HTML & CSS</li>
                 <li>JavaScript</li>
-                <li>HTML/CSS</li>
+                <li>React</li>
                 <li>Node.js</li>
+                <li>Git & GitHub</li>
             </ul>
         </section>
     );
