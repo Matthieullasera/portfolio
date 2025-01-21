@@ -1,29 +1,65 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
-const Carousel = () => {
-    const items = [
-        '/path-to-video-or-image1.jpg',
-        '/path-to-video-or-image2.jpg',
-        '/path-to-video-or-image3.jpg'
+const Carrousel = () => {
+    const videos = [
+        {
+            url: "./videos/GX010425.MP4",
+            title: "Développement"
+        },
+        {
+            url: "./videos/GX010428.MP4",
+            title: "Coding"
+        },
+        {
+            url: "./videos/Séquence2.mp4",
+            title: "Workspace"
+        }
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const videoRef = useRef(null);
 
-    const nextSlide = () => {
-        setCurrentIndex((currentIndex + 1) % items.length);
+    const nextVideo = useCallback(() => {
+        setCurrentIndex((prev) => (prev + 1) % videos.length);
+    }, []);
+
+    const prevVideo = () => {
+        setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length);
     };
 
-    const prevSlide = () => {
-        setCurrentIndex((currentIndex - 1 + items.length) % items.length);
-    };
+    useEffect(() => {
+        const videoElement = videoRef.current;
+        
+        if (videoElement) {
+            const handleEnded = () => {
+                nextVideo();
+            };
+            
+            videoElement.addEventListener('ended', handleEnded);
+            
+            return () => {
+                videoElement.removeEventListener('ended', handleEnded);
+            };
+        }
+    }, [currentIndex, nextVideo]);
 
     return (
         <div className="carousel">
-            <button className="prev" onClick={prevSlide}>←</button>
-            <img src={items[currentIndex]} alt="Carousel item" />
-            <button className="next" onClick={nextSlide}>→</button>
+            <button className="carousel-btn prev" onClick={prevVideo}>←</button>
+            <video 
+                ref={videoRef}
+                key={videos[currentIndex].url}
+                autoPlay 
+                muted 
+                playsInline
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            >
+                <source src={videos[currentIndex].url} type="video/mp4" />
+                Votre navigateur ne supporte pas la vidéo.
+            </video>
+            <button className="carousel-btn next" onClick={nextVideo}>→</button>
         </div>
     );
 };
 
-export default Carousel;
+export default Carrousel;
