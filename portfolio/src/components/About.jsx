@@ -3,7 +3,7 @@ import Carrousel from './Carrousel';
 const About = () => {
     return (
         <section id="about" className="about">
-            <h2>À propos</h2>
+            <h2 className="line-title">À propos</h2>
             <div className="about-content">
                 <p>
                     Bonjour et bienvenue sur mon portfolio ! Je m'apelle Matthieu, développeur web passionné, et j'aime avant tout créer des expériences numériques qui répondent aux besoins de chacun. 

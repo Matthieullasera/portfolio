@@ -30,9 +30,7 @@ const FloatingButton = () => {
             {isModalOpen && (
                 <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
                     <div className="modal" onClick={(e) => e.stopPropagation()}>
-                        <button className="close-button" onClick={() => setIsModalOpen(false)}>
-                            ×
-                        </button>
+                        <button className="close-button" onClick={() => setIsModalOpen(false)}></button>
                         <h2>Contactez-moi</h2>
                         <form onSubmit={handleSubmit} className="contact-form">
                             <div className="form-group">

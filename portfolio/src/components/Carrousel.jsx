@@ -3,16 +3,16 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 const Carrousel = () => {
     const videos = [
         {
-            url: "./videos/GX010425.MP4",
-            title: "Développement"
+            url: "",
+            title: ""
         },
         {
-            url: "./videos/GX010428.MP4",
-            title: "Coding"
+            url: "",
+            title: ""
         },
         {
-            url: "./videos/Séquence2.mp4",
-            title: "Workspace"
+            url: "",
+            title: ""
         }
     ];
 
