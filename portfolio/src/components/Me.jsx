@@ -42,7 +42,7 @@ const Me = () => {
                 </div>
                 <div className="avatar-container">
                     <div className="avatar">
-                        <img src="./image/me.png" alt="Avatar" />
+                        <img src="src/image/me.png" alt="Avatar" />
                     </div>
                     <div className="avatar-backdrop"></div>
                 </div>
