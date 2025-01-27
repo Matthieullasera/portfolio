@@ -5,23 +5,29 @@ const Projects = () => {
         {
             id: 1,
             title: "Kasa - Location Immobilière",
-            description: "Application web de location immobilière développée avec React. Implémentation du front-end avec React Router pour la navigation, composants réutilisables, animations CSS et styling avec SASS. Focus sur l'expérience utilisateur et l'interface moderne.",
+            description: "Application web de location immobilière développée avec React dans le cadre de ma formation OpenClassrooms. Implémentation du front-end avec React Router pour la navigation, composants réutilisables, animations CSS et styling avec SASS. Focus sur l'expérience utilisateur et l'interface moderne.",
             image: "https://wallpapercave.com/wp/wp4924054.jpg",
-            technologies: ["React", "React Router", "SASS", "Vite"]
+            technologies: ["React", "React Router", "SASS", "Vite"],
+            formation: "OpenClassrooms",
+            github: "https://github.com/Matthieullasera/kasa_project"
         },
         {
             id: 2,
             title: "Portfolio Architecte - Sophie Bluel",
-            description: "Développement d'une page web dynamique en JavaScript pour une architecte d'intérieur. Création d'une interface de gestion de galerie avec authentification administrateur, manipulation du DOM et intégration API. Focus sur l'interactivité utilisateur et la gestion des médias.",
+            description: "Développement d'une page web dynamique en JavaScript pour une architecte d'intérieur dans le cadre de ma formation OpenClassrooms. Création d'une interface de gestion de galerie avec authentification administrateur, manipulation du DOM et intégration API. Focus sur l'interactivité utilisateur et la gestion des médias.",
             image: "https://wallpapercave.com/wp/wp4924063.jpg",
-            technologies: ["JavaScript", "API REST", "HTML/CSS", "DOM"]
+            technologies: ["JavaScript", "API REST", "HTML/CSS", "DOM"],
+            formation: "OpenClassrooms",
+            github: "https://github.com/Matthieullasera/Portfolio-architecte-sophie-bluel"
         },
         {
             id: 3,
             title: "Mon Vieux Grimoire - Backend",
-            description: "Développement du backend d'un site de notation de livres avec Node.js et Express. Création d'une API RESTful, intégration de MongoDB, système d'authentification sécurisé et gestion optimisée des images. Architecture MVC et respect des principes du Green Code.",
+            description: "Développement du backend d'un site de notation de livres avec Node.js et Express dans le cadre de ma formation OpenClassrooms. Création d'une API RESTful, intégration de MongoDB, système d'authentification sécurisé et gestion optimisée des images. Architecture MVC et respect des principes du Green Code.",
             image: "https://wallpapercave.com/wp/wp4924066.jpg",
-            technologies: ["Node.js", "Express", "MongoDB", "API REST", "JWT"]
+            technologies: ["Node.js", "Express", "MongoDB", "API REST", "JWT"],
+            formation: "OpenClassrooms",
+            github: "https://github.com/Matthieullasera/Back"
         }
         // Ajoutez d'autres projets ici
     ];
@@ -42,13 +48,26 @@ const Projects = () => {
                         <div className="item-desc">
                             <h3>{project.title}</h3>
                             {index === activeIndex ? (
-                                <p className="description">{project.description}</p>
+                                <>
+                                    <p className="description">{project.description}</p>
+                                    <a 
+                                        href={project.github} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="github-link"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <i className="devicon-github-original"></i>
+                                        Voir le code
+                                    </a>
+                                </>
                             ) : (
                                 <div className="click-more">
                                     <span>Cliquez pour voir la description</span>
                                 </div>
                             )}
                             <div className="technologies">
+                                <span className="formation-tag">{project.formation}</span>
                                 {project.technologies.map((tech, i) => (
                                     <span key={i} className="tech-tag">{tech}</span>
                                 ))}

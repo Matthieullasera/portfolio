@@ -66,9 +66,6 @@ const Header = () => {
             <li className="nav__list-item">
               <a href="#skills" className="hover-target" onClick={handleNavClick}>Compétences</a>
             </li>
-            <li className="nav__list-item">
-              <a href="#contact" className="hover-target" onClick={handleNavClick}>Contact</a>
-            </li>
           </ul>
         </div>
       </div>

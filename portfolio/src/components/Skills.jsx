@@ -5,16 +5,18 @@ const Skills = () => {
             { id: 3, name: "JavaScript", icon: "devicon-javascript-plain" },
             { id: 4, name: "CSS3", icon: "devicon-css3-plain" },
             { id: 9, name: "HTML5", icon: "devicon-html5-plain" },
+            { id: 15, name: "Sass", icon: "devicon-sass-original" },
         ],
         "Backend": [
             { id: 2, name: "Node.js", icon: "devicon-nodejs-plain" },
-            { id: 8, name: "NoSQL", icon: "devicon-nosql-plain" },
+            { id: 8, name: "MongoDB", icon: "devicon-mongodb-plain" },
             { id: 14, name: "API REST", icon: "devicon-nodejs-plain" },
         ],
         "Outils": [
             { id: 6, name: "Git", icon: "devicon-git-plain" },
             { id: 12, name: "VS Code", icon: "devicon-vscode-plain" },
             { id: 13, name: "Figma", icon: "devicon-figma-plain" },
+            { id: 16, name: "Notion", icon: "devicon-notion-plain" },
         ]
     };
 
