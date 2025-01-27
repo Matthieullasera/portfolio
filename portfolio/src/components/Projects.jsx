@@ -6,7 +6,7 @@ const Projects = () => {
             id: 1,
             title: "Kasa - Location Immobilière",
             description: "Application web de location immobilière développée avec React dans le cadre de ma formation OpenClassrooms. Implémentation du front-end avec React Router pour la navigation, composants réutilisables, animations CSS et styling avec SASS. Focus sur l'expérience utilisateur et l'interface moderne.",
-            image: "https://wallpapercave.com/wp/wp4924054.jpg",
+            image: "/image/kasa.png",
             technologies: ["React", "React Router", "SASS", "Vite"],
             formation: "OpenClassrooms",
             github: "https://github.com/Matthieullasera/kasa_project"
@@ -15,7 +15,7 @@ const Projects = () => {
             id: 2,
             title: "Portfolio Architecte - Sophie Bluel",
             description: "Développement d'une page web dynamique en JavaScript pour une architecte d'intérieur dans le cadre de ma formation OpenClassrooms. Création d'une interface de gestion de galerie avec authentification administrateur, manipulation du DOM et intégration API. Focus sur l'interactivité utilisateur et la gestion des médias.",
-            image: "https://wallpapercave.com/wp/wp4924063.jpg",
+            image: "/image/sophie_bluel1.png",
             technologies: ["JavaScript", "API REST", "HTML/CSS", "DOM"],
             formation: "OpenClassrooms",
             github: "https://github.com/Matthieullasera/Portfolio-architecte-sophie-bluel"
@@ -24,12 +24,11 @@ const Projects = () => {
             id: 3,
             title: "Mon Vieux Grimoire - Backend",
             description: "Développement du backend d'un site de notation de livres avec Node.js et Express dans le cadre de ma formation OpenClassrooms. Création d'une API RESTful, intégration de MongoDB, système d'authentification sécurisé et gestion optimisée des images. Architecture MVC et respect des principes du Green Code.",
-            image: "https://wallpapercave.com/wp/wp4924066.jpg",
+            image: "/image/grimoire.png",
             technologies: ["Node.js", "Express", "MongoDB", "API REST", "JWT"],
             formation: "OpenClassrooms",
             github: "https://github.com/Matthieullasera/Back"
         }
-        // Ajoutez d'autres projets ici
     ];
 
     const [activeIndex, setActiveIndex] = useState(null);

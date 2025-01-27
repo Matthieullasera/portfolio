@@ -856,6 +856,13 @@ body.nav-active {
             color: #8167a9;
             transition: transform 0.3s ease;
             margin-bottom: 0.8rem;
+
+            img {
+                width: 3.5rem !important;
+                height: 3.5rem !important;
+                filter: invert(48%) sepia(13%) saturate(1115%) hue-rotate(219deg) brightness(95%) contrast(90%);
+                opacity: 0.9;
+            }
         }
 
         .skill-name {
@@ -1126,6 +1133,10 @@ body.nav-active {
             transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             border-radius: 20px;
             overflow: hidden;
+            background-position: center 0px;
+            background-size: 110%;
+            background-repeat: no-repeat;
+            background-color: hsl(var(--background));
             
             &.active {
                 min-width: 600px;
