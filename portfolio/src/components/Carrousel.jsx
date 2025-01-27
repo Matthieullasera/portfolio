@@ -8,27 +8,27 @@ const Carrousel = () => {
 
     const videos = [
         {
-            url: "/videos/videofoot.mp4",
+            url: "https://res.cloudinary.com/dr1zmiycg/video/upload/v1/c4porjpqoyhmuei6vpl6",
             title: "Le football",
             description: "une passion pour ce sport depuis toujours"
         },
         {
-            url: "/videos/GX010425.MP4",
+            url: "https://res.cloudinary.com/dr1zmiycg/video/upload/v1/xdttqvuep9gohrnpqk8u",
             title: "L'adrenaline",
             description: "Depuis petit j'ai toujours cherché à me surpasser ( on ne dirait pas comme ça mais c'est un plongeon de 8m de haut !)"
         },
         {
-            url: "/videos/Séquence_09_2.mp4",
+            url: "https://res.cloudinary.com/dr1zmiycg/video/upload/v1/bgkidjx9prltvqi5javr",
             title: "Courir pour repousser ses limites",
             description: "J'ai l'année dernière couru le marathon de Barcelone, quel expérience fantastique ! mais aussi douloureuse !"
         },
         {
-            url: "/videos/IMG_3235 2.MOV",
+            url: "https://res.cloudinary.com/dr1zmiycg/video/upload/v1/gccu9ept2jdlpof3bclc",
             title: "La randonnée",
             description: "des moments hors du temps qui nous coupent du monde"
         },
         {
-            url: "/videos/Séquence_09.mp4",
+            url: "https://res.cloudinary.com/dr1zmiycg/video/upload/v1/ieufftsoogn5gnpcvnpu",
             title: "Partir à l'aventure",
             description: "Découvrir le monde, c'est une passion qui me pousse à vivre des expériences inoubliables"
         }
