@@ -26,18 +26,29 @@ const Skills = () => {
     };
 
     return (
-        <section id="skills" className="skills">
-            <h2 className="line-title">Compétences</h2>
-            <div className="skills-container">
+        <section id="skills" className="skills" aria-labelledby="skills-title">
+            <h2 id="skills-title" className="line-title">Compétences</h2>
+            <div className="skills-container" role="list">
                 {Object.entries(skillCategories).map(([category, skills]) => (
-                    <div key={category} className="skills-category">
+                    <div key={category} className="skills-category" role="listitem">
                         <h3>{category}</h3>
-                        <div className="skills-grid">
+                        <div className="skills-grid" role="list">
                             {skills.map((skill) => (
-                                <div key={skill.id} className="skill-card">
-                                    <div className="skill-icon">
+                                <div 
+                                    key={skill.id} 
+                                    className="skill-card" 
+                                    role="listitem"
+                                    aria-label={`Compétence en ${skill.name}`}
+                                >
+                                    <div className="skill-icon" aria-hidden="true">
                                         {skill.customIcon ? (
-                                            <img src={skill.icon} alt={skill.name} style={{ width: '1em', height: '1em' }} />
+                                            <img 
+                                                src={skill.icon} 
+                                                alt={`${skill.name} icon`}
+                                                loading="lazy"
+                                                width="56"
+                                                height="56"
+                                            />
                                         ) : (
                                             <i className={skill.icon}></i>
                                         )}
