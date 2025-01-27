@@ -1,3 +1,4 @@
 /.vscode
 ./portfolio/node_modules
 ./portfolio/public/videos
+.env
