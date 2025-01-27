@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 const Carrousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -8,27 +8,27 @@ const Carrousel = () => {
 
     const videos = [
         {
-            url: "src/videos/videofoot.mp4",
+            url: "/videos/videofoot.mp4",
             title: "Le football",
             description: "une passion pour ce sport depuis toujours"
         },
         {
-            url: "src/videos/GX010438.MP4",
+            url: "/videos/GX010425.MP4",
             title: "L'adrenaline",
             description: "Depuis petit j'ai toujours cherché à me surpasser ( on ne dirait pas comme ça mais c'est un plongeon de 8m de haut !)"
         },
         {
-            url: "src/videos/Séquence_09_2.mp4",
+            url: "/videos/Séquence_09_2.mp4",
             title: "Courir pour repousser ses limites",
             description: "J'ai l'année dernière couru le marathon de Barcelone, quel expérience fantastique ! mais aussi douloureuse !"
         },
         {
-            url: "src/videos/IMG_3235 2.MOV",
+            url: "/videos/IMG_3235 2.MOV",
             title: "La randonnée",
             description: "des moments hors du temps qui nous coupent du monde"
         },
         {
-            url: "src/videos/Séquence_09.mp4",
+            url: "/videos/Séquence_09.mp4",
             title: "Partir à l'aventure",
             description: "Découvrir le monde, c'est une passion qui me pousse à vivre des expériences inoubliables"
         }

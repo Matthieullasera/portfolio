@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import PropTypes from 'prop-types';
 
 const Contact = ({ isOpen, onClose }) => {
     const [status, setStatus] = useState('');
@@ -127,6 +128,11 @@ const Contact = ({ isOpen, onClose }) => {
             )}
         </>
     );
+};
+
+Contact.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired
 };
 
 export default Contact;
