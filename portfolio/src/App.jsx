@@ -38,40 +38,6 @@ const App = () => {
                 <Contact />
             </Section>
             <FloatingButton />
-
-            {/* Bouton flottant */}
-            <button className="floating-button" onClick={openModal}>
-                Contact
-            </button>
-
-            {/* Modale */}
-            {isModalOpen && (
-                <div className="modal-overlay" onClick={closeModal}>
-                    <div className="modal" onClick={(e) => e.stopPropagation()}>
-                        <button className="close-button" onClick={closeModal}>
-                            ×
-                        </button>
-                        <h2>Contactez-moi</h2>
-                        <form>
-                            <div className="form-group">
-                                <label htmlFor="name">Nom</label>
-                                <input type="text" id="name" placeholder="Votre nom" />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="email">Email</label>
-                                <input type="email" id="email" placeholder="Votre email" />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="message">Message</label>
-                                <textarea id="message" rows="4" placeholder="Votre message"></textarea>
-                            </div>
-                            <button type="submit" className="submit-button">
-                                Envoyer
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            )}
         </div>
     );
 };

@@ -2,13 +2,17 @@ import ContactMeButton from "./ContactMeButton"
 const Me = () => {
     const bannerText = (
         <>
-            <span>Développeur Web Full Stack disponible maintenant </span>
+            <span>Développeur Web Full Stack React & Node.js</span>
             <span>•</span>
-            <span>contactez moi pour plus d'informations</span>
+            <span>Création d'applications web modernes</span>
             <span>•</span>
-            <span>Node.js</span>
+            <span>Responsive Design</span>
             <span>•</span>
-            <span>JavaScript</span>
+            <span>Interfaces utilisateur dynamiques</span>
+            <span>•</span>
+            <span>API REST</span>
+            <span>•</span>
+            <span>Disponible pour nouveaux projets</span>
             <span>•</span>
         </>
     );
@@ -38,7 +42,7 @@ const Me = () => {
                 </div>
                 <div className="avatar-container">
                     <div className="avatar">
-                        <img src="./test-portfolio.jpg" alt="Avatar" />
+                        <img src="/image/me.png" alt="Avatar" />
                     </div>
                     <div className="avatar-backdrop"></div>
                 </div>
