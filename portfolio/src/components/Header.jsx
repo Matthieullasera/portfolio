@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 
-const Header = () => {
+const Header = ({ activePortfolio, onPortfolioChange }) => {
   const [isNavActive, setIsNavActive] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
@@ -43,6 +44,20 @@ const Header = () => {
               <span className="menu-icon__line menu-icon__line-right"></span>
             </div>
           </div>
+          <div className="portfolio-switcher">
+            <button 
+              className={`switcher-btn ${activePortfolio === 'dev' ? 'active' : ''}`}
+              onClick={() => onPortfolioChange('dev')}
+            >
+              Développeur Web
+            </button>
+            <button 
+              className={`switcher-btn ${activePortfolio === 'video' ? 'active' : ''}`}
+              onClick={() => onPortfolioChange('video')}
+            >
+              Monteur Vidéo
+            </button>
+          </div>
           <div className="logo-wrap">
             <a href="#" className="hover-target">
               <span>M</span>L
@@ -71,6 +86,11 @@ const Header = () => {
       </div>
     </>
   );
+};
+
+Header.propTypes = {
+  activePortfolio: PropTypes.string.isRequired,
+  onPortfolioChange: PropTypes.func.isRequired
 };
 
 export default Header;
