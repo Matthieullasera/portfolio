@@ -2,7 +2,6 @@ import Section from './Section';
 import DevHero from './DevHero';
 import DevProjects from './DevProjects';
 import DevSkills from './DevSkills';
-import DevExperience from './DevExperience';
 import About from './About';
 import FloatingButton from './FloatingButton';
 import { useScrollAnimation } from './ScrollAnimation';
@@ -26,10 +25,6 @@ const DevPortfolio = () => {
 
       <Section>
         <DevSkills />
-      </Section>
-
-      <Section>
-        <DevExperience />
       </Section>
     </div>
   );

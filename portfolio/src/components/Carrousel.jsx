@@ -1,112 +1,138 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 const Carrousel = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
-    const videoRef = useRef(null);
 
     const videos = [
         {
             url: "https://res.cloudinary.com/dr1zmiycg/video/upload/v1/c4porjpqoyhmuei6vpl6",
             title: "Le football",
-            description: "Une passion pour ce sport depuis toujours"
+            description: "Une passion pour ce sport depuis toujours",
+            icon: "⚽"
         },
         {
             url: "https://res.cloudinary.com/dr1zmiycg/video/upload/v1/xdttqvuep9gohrnpqk8u",
             title: "L'adrénaline",
-            description: "Depuis petit j'ai toujours cherché à me surpasser (on ne dirait pas comme ça mais c'est un plongeon de 8m de haut !)"
+            description: "Depuis petit j'ai toujours cherché à me surpasser",
+            icon: "🎯"
         },
         {
             url: "https://res.cloudinary.com/dr1zmiycg/video/upload/v1/bgkidjx9prltvqi5javr",
             title: "Courir pour repousser ses limites",
-            description: "J'ai l'année dernière couru le marathon de Barcelone, quelle expérience fantastique ! mais aussi douloureuse !"
+            description: "Marathon de Barcelone, quelle expérience fantastique !",
+            icon: "🏃"
         },
         {
             url: "https://res.cloudinary.com/dr1zmiycg/video/upload/v1/gccu9ept2jdlpof3bclc",
             title: "La randonnée",
-            description: "Des moments hors du temps qui nous coupent du monde"
+            description: "Des moments hors du temps qui nous coupent du monde",
+            icon: "🏔️"
         },
         {
             url: "https://res.cloudinary.com/dr1zmiycg/video/upload/v1/ieufftsoogn5gnpcvnpu",
             title: "Partir à l'aventure",
-            description: "Découvrir le monde, c'est une passion qui me pousse à vivre des expériences inoubliables"
+            description: "Découvrir le monde, vivre des expériences inoubliables",
+            icon: "✈️"
         }
     ];
 
-    const handleNavigation = (direction) => {
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (!isTransitioning) {
+                handleNext();
+            }
+        }, 8000);
+
+        return () => clearInterval(interval);
+    }, [activeIndex, isTransitioning]);
+
+    const handleNext = () => {
         if (isTransitioning) return;
         setIsTransitioning(true);
-        
-        const nextIndex = direction === 'next' 
-            ? (currentIndex + 1) % videos.length
-            : (currentIndex - 1 + videos.length) % videos.length;
+        setActiveIndex((prev) => (prev + 1) % videos.length);
+        setTimeout(() => setIsTransitioning(false), 500);
+    };
 
-        setTimeout(() => {
-            setCurrentIndex(nextIndex);
-            setIsTransitioning(false);
-        }, 500);
+    const handlePrev = () => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setActiveIndex((prev) => (prev - 1 + videos.length) % videos.length);
+        setTimeout(() => setIsTransitioning(false), 500);
     };
 
     return (
-        <section className="video-carousel">
-            <div className="carousel-inner">
+        <div className="carousel-new">
+            <div className="carousel-container">
                 <div className="video-wrapper">
-                    <video 
-                        ref={videoRef}
-                        key={videos[currentIndex].url}
-                        autoPlay 
-                        muted 
+                    <video
+                        key={videos[activeIndex].url}
+                        autoPlay
+                        muted
                         loop
                         playsInline
                         className={isTransitioning ? 'transitioning' : ''}
                     >
-                        <source src={videos[currentIndex].url} type="video/mp4" />
+                        <source src={videos[activeIndex].url} type="video/mp4" />
                     </video>
-                </div>
-
-                <div className="content-overlay">
-                    <div className="content-wrapper">
-                        <h2>{videos[currentIndex].title}</h2>
-                        <p>{videos[currentIndex].description}</p>
+                    
+                    <div className="video-overlay">
+                        <div className="video-info">
+                            <h3>
+                                {videos[activeIndex].title}
+                                <span className="video-icon">{videos[activeIndex].icon}</span>
+                            </h3>
+                            <p>{videos[activeIndex].description}</p>
+                        </div>
                     </div>
                 </div>
 
-                <div className="navigation">
+                <div className="carousel-controls">
                     <button 
-                        className="nav-btn prev"
-                        onClick={() => handleNavigation('prev')}
+                        className="control-btn prev" 
+                        onClick={handlePrev}
                         aria-label="Précédent"
                     >
-                        <span>←</span>
-                    </button>
-                    <div className="dots">
-                        {videos.map((_, idx) => (
-                            <button
-                                key={idx}
-                                className={`dot ${idx === currentIndex ? 'active' : ''}`}
-                                onClick={() => {
-                                    if (!isTransitioning && idx !== currentIndex) {
-                                        setIsTransitioning(true);
-                                        setTimeout(() => {
-                                            setCurrentIndex(idx);
-                                            setIsTransitioning(false);
-                                        }, 500);
-                                    }
-                                }}
-                                aria-label={`Slide ${idx + 1}`}
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path 
+                                fill="currentColor" 
+                                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
                             />
-                        ))}
-                    </div>
+                        </svg>
+                    </button>
+                    
                     <button 
-                        className="nav-btn next"
-                        onClick={() => handleNavigation('next')}
+                        className="control-btn next" 
+                        onClick={handleNext}
                         aria-label="Suivant"
                     >
-                        <span>→</span>
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path 
+                                fill="currentColor" 
+                                d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"
+                            />
+                        </svg>
                     </button>
                 </div>
+
+                <div className="carousel-indicators">
+                    {videos.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`indicator ${index === activeIndex ? 'active' : ''}`}
+                            onClick={() => {
+                                if (!isTransitioning && index !== activeIndex) {
+                                    setIsTransitioning(true);
+                                    setActiveIndex(index);
+                                    setTimeout(() => setIsTransitioning(false), 500);
+                                }
+                            }}
+                            aria-label={`Slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
             </div>
-        </section>
+        </div>
     );
 };
 
