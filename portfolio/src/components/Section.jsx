@@ -1,16 +1,21 @@
+import PropTypes from 'prop-types';
 import { useScrollAnimation } from './ScrollAnimation';
 
-const Section = ({ children, className = '' }) => {
+const Section = ({ children }) => {
   const [ref, isVisible] = useScrollAnimation();
 
   return (
     <section
       ref={ref}
-      className={`fade-in-section ${isVisible ? 'is-visible' : ''} ${className}`}
+      className={`section ${isVisible ? 'is-visible' : ''}`}
     >
       {children}
     </section>
   );
+};
+
+Section.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 export default Section; 

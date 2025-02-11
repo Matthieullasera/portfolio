@@ -3,19 +3,41 @@ import Carrousel from './Carrousel';
 
 const About = ({ isVideo }) => {
     return (
-        <section id="about" className="about">
-            <h2 className="line-title">À propos</h2>
-            <div className="about-content">
+        <div className="about-container">
+            <div className="about-text">
+                <h2>À propos</h2>
                 <p>
-                    {isVideo ? (
-                        "Passionné par l'art du montage vidéo, je m'efforce de donner vie aux histoires à travers une narration visuelle captivante. Mon approche créative combine technique et sensibilité artistique pour créer des contenus qui marquent les esprits."
-                    ) : (
-                        "Bonjour et bienvenue sur mon portfolio ! Je m'appelle Matthieu, développeur web passionné, et j'aime avant tout créer des expériences numériques qui répondent aux besoins de chacun. Je suis arrivé ici en suivant ma curiosité pour le code et mon envie d'explorer sans cesse de nouvelles idées."
-                    )}
+                    Bonjour ! Je suis Matthieu, développeur web passionné par la création d'expériences numériques innovantes. 
+                    Mon parcours est guidé par une curiosité insatiable pour les nouvelles technologies et une volonté constante 
+                    de repousser les limites du possible dans le développement web.
                 </p>
+                <p>
+                    À droite, découvrez en images ce qui me passionne en dehors du code : le sport, l'aventure et les défis personnels. 
+                    Ces vidéos illustrent ma personnalité et mon goût pour le dépassement de soi, des qualités que j'applique 
+                    également dans mes projets de développement.
+                </p>
+                <div className="about-cards">
+                    <div className="card">
+                        <span className="icon">🎯</span>
+                        <h4>Vision</h4>
+                        <p>Créer des solutions web innovantes qui allient performance et expérience utilisateur</p>
+                    </div>
+                    <div className="card">
+                        <span className="icon">💡</span>
+                        <h4>Approche</h4>
+                        <p>Allier créativité et expertise technique pour des résultats exceptionnels</p>
+                    </div>
+                    <div className="card">
+                        <span className="icon">🚀</span>
+                        <h4>Objectif</h4>
+                        <p>Repousser constamment les limites pour créer des expériences web mémorables</p>
+                    </div>
+                </div>
+            </div>
+            <div className="about-carousel">
                 <Carrousel />
             </div>
-        </section>
+        </div>
     );
 };
 
